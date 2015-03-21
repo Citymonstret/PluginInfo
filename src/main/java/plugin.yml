@@ -1,0 +1,21 @@
+author: [Citymonstret]
+main: com.cyandev.plugin.plugininfo.PluginInfo
+version: 1.0
+name: PluginInfo
+commands:
+  plinfo:
+    permission: plinfo.use
+    aliases: [pinf]
+    description: PluginInfo Main Command
+    usage: /plinfo [subcommand]
+permissions:
+  plinfo.use:
+    default: op
+  plinfo.list:
+    default: op
+  plinfo.disable:
+    default: op
+  plinfo.enable:
+    default: op
+  plinfo.info:
+    default: op
