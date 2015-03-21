@@ -1,9 +1,8 @@
 package com.cyandev.plugin.plugininfo.builder;
 
-import net.minecraft.server.v1_8_R2.IChatBaseComponent;
+import com.cyandev.plugin.plugininfo.PluginInfo;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.craftbukkit.v1_8_R2.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -83,7 +82,11 @@ public class ChatMessage {
     }
 
     public void send(final Player player) {
-        ((CraftPlayer) player).getHandle().sendMessage(IChatBaseComponent.ChatSerializer.a(toString()));
+        if (PluginInfo.NMS_CONTROL) {
+            ReflectionSender.send(this, player);
+        } else {
+            ControlledSender.send(this, player);
+        }
     }
 
     public void broadcast() {
