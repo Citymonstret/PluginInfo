@@ -279,10 +279,13 @@ public class Command implements CommandExecutor {
 
     protected String getCommandInfo(final PluginDescriptionFile d) {
         StringBuilder b = new StringBuilder();
-        for (final Map.Entry<String, Map<String, Object>> m : d.getCommands().entrySet()) {
-            b.append("\n").append("   &cCommand: &6/").append(m.getKey());
-            for (String s : m.getValue().keySet()) {
-                b.append("\n     &c").append(s).append("&6: ").append(m.getValue().get(s));
+
+        if (d.getCommands() != null) {
+            for (final Map.Entry<String, Map<String, Object>> m : d.getCommands().entrySet()) {
+                b.append("\n").append("   &cCommand: &6/").append(m.getKey());
+                for (String s : m.getValue().keySet()) {
+                    b.append("\n     &c").append(s).append("&6: ").append(m.getValue().get(s));
+                }
             }
         }
         return b.toString();

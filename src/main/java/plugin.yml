@@ -1,6 +1,6 @@
 author: [Citymonstret]
 main: com.cyandev.plugin.plugininfo.PluginInfo
-version: 1.0
+version: 1.5
 name: PluginInfo
 commands:
   plinfo:
